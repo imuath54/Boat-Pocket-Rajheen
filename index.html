@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوت التداول الذكي - Pocket Option</title>
+    <meta name="description" content="بوت تداول ذكي لمنصة Pocket Option بدقة توقع تصل إلى 90% يدعم السوق الحقيقي وسوق OTC">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="translatePage()">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="ru">Русский</option>
+            <option value="pt">Português</option>
+            <option value="it">Italiano</option>
+            <option value="tr">Türkçe</option>
+            <option value="hi">हिन्दी</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="no">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="hu">Magyar</option>
+            <option value="ro">Română</option>
+            <option value="bg">Български</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Српски</option>
+            <option value="sl">Slovenščina</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="uk">Українська</option>
+            <option value="be">Беларуская</option>
+            <option value="mk">Македонски</option>
+            <option value="sq">Shqip</option>
+            <option value="mt">Malti</option>
+            <option value="is">Íslenska</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="eu">Euskera</option>
+            <option value="ca">Català</option>
+            <option value="gl">Galego</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="bn">বাংলা</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="mr">मराठी</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="az">Azərbaycan</option>
+            <option value="kk">Қазақ</option>
+            <option value="ky">Кыргыз</option>
+            <option value="uz">O'zbek</option>
+            <option value="tg">Тоҷикӣ</option>
+            <option value="mn">Монгол</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="ha">Hausa</option>
+            <option value="zu">isiZulu</option>
+            <option value="xh">isiXhosa</option>
+            <option value="af">Afrikaans</option>
+        </select>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-robot"></i>
+                    <span data-translate="site_title">بوت التداول الذكي</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" data-translate="nav_home">الرئيسية</a></li>
+                    <li><a href="#features" data-translate="nav_features">المميزات</a></li>
+                    <li><a href="#pricing" data-translate="nav_pricing">الأسعار</a></li>
+                    <li><a href="#contact" data-translate="nav_contact">اتصل بنا</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="hero_title">بوت التداول الذكي لمنصة Pocket Option</h1>
+                <p class="hero-subtitle" data-translate="hero_subtitle">احصل على توقعات دقيقة تصل إلى 90% للصفقات في السوق الحقيقي وسوق OTC</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label" data-translate="accuracy_label">دقة التوقع</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label" data-translate="availability_label">متاح دائماً</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label" data-translate="markets_label">أسواق مدعومة</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" data-translate="start_now">ابدأ الآن</button>
+                    <button class="btn btn-secondary" data-translate="watch_demo">شاهد العرض التوضيحي</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="trading-dashboard">
+                    <div class="dashboard-header">
+                        <div class="status-indicator active"></div>
+                        <span data-translate="bot_status">البوت نشط</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="tradingChart"></canvas>
+                    </div>
+                    <div class="trade-info">
+                        <div class="trade-item">
+                            <span data-translate="last_signal">آخر إشارة:</span>
+                            <span class="signal-buy">شراء</span>
+                        </div>
+                        <div class="trade-item">
+                            <span>RSI:</span>
+                            <span>28.5</span>
+                        </div>
+                        <div class="trade-item">
+                            <span data-translate="success_rate">معدل النجاح:</span>
+                            <span class="success-rate">89.2%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title" data-translate="features_title">مميزات البوت</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-translate="feature1_title">تحليل فني متقدم</h3>
+                    <p data-translate="feature1_desc">يستخدم مؤشرات RSI وEMA وBollinger Bands لتحليل دقيق للسوق</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 data-translate="feature2_title">تداول آلي 24/7</h3>
+                    <p data-translate="feature2_desc">يعمل البوت بشكل مستمر ويرسل إشارات التداول كل دقيقة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 data-translate="feature3_title">دعم الأسواق المتعددة</h3>
+                    <p data-translate="feature3_desc">يدعم السوق الحقيقي وسوق OTC بنفس الدقة العالية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-translate="feature4_title">إدارة المخاطر</h3>
+                    <p data-translate="feature4_desc">نظام متقدم لإدارة المخاطر وحماية رأس المال</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 data-translate="feature5_title">واجهة سهلة الاستخدام</h3>
+                    <p data-translate="feature5_desc">تصميم بسيط وسهل يناسب المبتدئين والمحترفين</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 data-translate="feature6_title">دعم فني متميز</h3>
+                    <p data-translate="feature6_desc">فريق دعم متاح 24/7 لمساعدتك في أي وقت</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-translate="how_it_works_title">كيف يعمل البوت؟</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-translate="step1_title">تحليل السوق</h3>
+                        <p data-translate="step1_desc">يقوم البوت بتحليل السوق باستخدام مؤشرات فنية متقدمة</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-translate="step2_title">توليد الإشارات</h3>
+                        <p data-translate="step2_desc">يولد إشارات شراء أو بيع بناءً على التحليل الفني</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-translate="step3_title">تنفيذ الصفقات</h3>
+                        <p data-translate="step3_desc">ينفذ الصفقات تلقائياً أو يرسل إشعارات للمستخدم</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 data-translate="step4_title">تتبع النتائج</h3>
+                        <p data-translate="step4_desc">يتتبع نتائج الصفقات ويحسن الأداء باستمرار</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title" data-translate="pricing_title">خطط الأسعار</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-translate="plan_basic">الخطة الأساسية</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period" data-translate="per_month">/شهر</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-translate="basic_feature1">إشارات تداول أساسية</li>
+                        <li data-translate="basic_feature2">دعم السوق الحقيقي</li>
+                        <li data-translate="basic_feature3">دعم فني عبر البريد</li>
+                        <li data-translate="basic_feature4">تقارير أسبوعية</li>
+                    </ul>
+                    <button class="btn btn-outline" data-translate="choose_plan">اختر الخطة</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge" data-translate="most_popular">الأكثر شعبية</div>
+                    <div class="pricing-header">
+                        <h3 data-translate="plan_pro">الخطة الاحترافية</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">59</span>
+                            <span class="period" data-translate="per_month">/شهر</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-translate="pro_feature1">إشارات تداول متقدمة</li>
+                        <li data-translate="pro_feature2">دعم جميع الأسواق</li>
+                        <li data-translate="pro_feature3">تداول آلي</li>
+                        <li data-translate="pro_feature4">دعم فني 24/7</li>
+                        <li data-translate="pro_feature5">تقارير يومية</li>
+                        <li data-translate="pro_feature6">إدارة المخاطر</li>
+                    </ul>
+                    <button class="btn btn-primary" data-translate="choose_plan">اختر الخطة</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-translate="plan_enterprise">خطة المؤسسات</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period" data-translate="per_month">/شهر</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-translate="enterprise_feature1">جميع مميزات الخطة الاحترافية</li>
+                        <li data-translate="enterprise_feature2">حسابات متعددة</li>
+                        <li data-translate="enterprise_feature3">API مخصص</li>
+                        <li data-translate="enterprise_feature4">مدير حساب مخصص</li>
+                        <li data-translate="enterprise_feature5">تدريب شخصي</li>
+                    </ul>
+                    <button class="btn btn-outline" data-translate="choose_plan">اختر الخطة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-translate="testimonials_title">آراء العملاء</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-translate="testimonial1">"البوت ساعدني في تحقيق أرباح ثابتة. دقة التوقعات مذهلة!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>أحمد محمد</h4>
+                            <span data-translate="trader">متداول</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-translate="testimonial2">"أفضل استثمار قمت به. البوت يعمل بكفاءة عالية ودقة مذهلة."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>سارة أحمد</h4>
+                            <span data-translate="investor">مستثمرة</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-translate="testimonial3">"الدعم الفني ممتاز والنتائج تفوق التوقعات. أنصح به بشدة."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>محمد علي</h4>
+                            <span data-translate="trader">متداول</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact_title">اتصل بنا</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-translate="get_in_touch">تواصل معنا</h3>
+                    <p data-translate="contact_desc">نحن هنا لمساعدتك في أي استفسار أو مشكلة تواجهها</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@tradingbot.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-translate="address">123 شارع التداول، المدينة المالية</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="الاسم" data-translate-placeholder="name_placeholder" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="البريد الإلكتروني" data-translate-placeholder="email_placeholder" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="الرسالة" data-translate-placeholder="message_placeholder" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-translate="send_message">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-robot"></i>
+                        <span data-translate="site_title">بوت التداول الذكي</span>
+                    </div>
+                    <p data-translate="footer_desc">بوت تداول ذكي يوفر توقعات دقيقة لمنصة Pocket Option</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="quick_links">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home" data-translate="nav_home">الرئيسية</a></li>
+                        <li><a href="#features" data-translate="nav_features">المميزات</a></li>
+                        <li><a href="#pricing" data-translate="nav_pricing">الأسعار</a></li>
+                        <li><a href="#contact" data-translate="nav_contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="legal">قانوني</h4>
+                    <ul>
+                        <li><a href="#" data-translate="privacy_policy">سياسة الخصوصية</a></li>
+                        <li><a href="#" data-translate="terms_of_service">شروط الخدمة</a></li>
+                        <li><a href="#" data-translate="disclaimer">إخلاء المسؤولية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="follow_us">تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="copyright">&copy; 2024 بوت التداول الذكي. جميع الحقوق محفوظة.</p>
+                <div class="disclaimer-notice">
+                    <p data-translate="risk_warning">تحذير من المخاطر: التداول ينطوي على مخاطر عالية وقد يؤدي إلى خسارة رأس المال. الأداء السابق لا يضمن النتائج المستقبلية.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
