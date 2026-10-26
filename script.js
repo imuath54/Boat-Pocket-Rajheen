@@ -252,6 +252,14 @@ function initChart() {
     const ctx = document.getElementById('tradingChart');
     if (!ctx) return;
     
+    // Chart.js is loaded from a CDN, which can be blocked or offline.
+    // Without this guard the ReferenceError escapes DOMContentLoaded and
+    // every initializer after this one never runs.
+    if (typeof Chart === 'undefined') {
+        console.warn('Chart.js unavailable; skipping trading chart.');
+        return;
+    }
+    
     new Chart(ctx, {
         type: 'line',
         data: {
@@ -386,20 +394,26 @@ function initHeaderScroll() {
 document.addEventListener('DOMContentLoaded', function() {
     // Load saved language preference
     const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) {
-        document.getElementById('languageSelect').value = savedLang;
+    const languageSelect = document.getElementById('languageSelect');
+    if (savedLang && languageSelect) {
+        languageSelect.value = savedLang;
         translatePage();
     }
     
-    // Initialize all features
-    initChart();
-    initSmoothScrolling();
-    initMobileNav();
-    initContactForm();
-    initPricingPlans();
-    initHeaderScroll();
+    // Initialize all features. Each one is isolated so that a failure in one
+    // feature cannot stop the rest of the page from being wired up.
+    [initChart, initSmoothScrolling, initMobileNav,
+     initContactForm, initPricingPlans, initHeaderScroll].forEach(init => {
+        try {
+            init();
+        } catch (error) {
+            console.error('Initialization failed:', init.name, error);
+        }
+    });
     
     // Add animation on scroll
+    if (typeof IntersectionObserver === 'undefined') return;
+    
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
